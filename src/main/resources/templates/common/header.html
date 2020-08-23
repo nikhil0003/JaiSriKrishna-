@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common-header">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>E commerce</title>
+
+<!-- Bootstrap CSS CDN -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Our Custom CSS -->
+<link rel="stylesheet" href="/css/style.css" />
+<!-- custom added -->
+<link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+<link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css" />
+<script th:src="@{/js/solid.js}"></script>
+<script th:src="@{/js/fontawesome.js}"></script>
+
+</head>
+
+<body>
+
+	<div th:fragment="navbar">
+
+		<div class="wrapper">
+			<!-- Sidebar  -->
+			<nav id="sidebar">
+				<div id="dismiss">
+					<i class="fas fa-arrow-left"></i>
+				</div>
+
+				<div class="sidebar-header">
+					<h5>Jai Sri Krishna</h5>
+				</div>
+
+				<ul class="list-unstyled components">
+					<li class="active"><a href="#homeSubmenu"
+						data-toggle="collapse" aria-expanded="false">Home</a>
+						<ul class="collapse list-unstyled" id="homeSubmenu">
+							<li><a href="#">Home 1</a></li>
+							<li><a href="#">Home 2</a></li>
+							<li><a href="#">Home 3</a></li>
+						</ul></li>
+					<li><a href="#"> Sign Up</a></li>
+					<li><a href="#"> About</a> <a href="#pageSubmenu"
+						data-toggle="collapse" aria-expanded="false">Pages</a>
+						<ul class="collapse list-unstyled" id="pageSubmenu">
+							<li><a href="#">Page 1</a></li>
+							<li><a href="#">Page 2</a></li>
+							<li><a href="#">Page 3</a></li>
+						</ul></li>
+					<li><a href="#">Portfolio</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+
+			<!-- Page Content  -->
+			<div id="content">
+				<nav class="navbar navbar-dark" style="background-color: #006266;">
+					<div class="container-fluid">
+						<div class="row">
+							<button type="button" id="sidebarCollapse" class="btn"
+								style="background-color: #006266; padding: 0px">
+								<i class="fas fa-align-left" style="color: #ced6e0;"></i>
+							</button>
+							<a class="nav-brand p-1 active mr-auto" style="color: #ced6e0">
+								<h6 class="m-0 p-2">Jai Sri krisha</h6>
+							</a> <a class=" myAccount"> </a> <a class=" myShopCart"> </a>
+						</div>
+						<div class="row">
+							<form action="">
+								<div class="p-1 bg-light rounded rounded-pill shadow-sm">
+									<div class="input-group">
+										<input type="search" placeholder="What're you searching for?"
+											aria-describedby="button-addon1"
+											class="form-control border-0 bg-light">
+										<div class="input-group-append">
+											<button id="button-addon1" type="submit"
+												class="btn btn-link text-primary">
+												<i class="fa fa-search"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</nav>
+			</div>
+		</div>
+
+
+
+		<div class="overlay"></div>
+	</div>
+
+	<div th:fragment="footer">
+		<footer style="background-color: black; height: 40px;"> </footer>
+	</div>
+
+	<div th:fragment="body-bottom-scripts">
+		<!-- jQuery CDN - Slim version (=without AJAX) -->
+		<script th:src="@{/js/jquery-3.3.1.slim.min.js}"></script>
+		<!-- Popper.JS -->
+		<script th:src="@{/js/popper.min.js}"></script>
+		<!-- Bootstrap JS -->
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<!-- jQuery Custom Scroller CDN -->
+		<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+		<!-- data table -->
+		<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+
+		<script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+	</div>
+</body>
+
+</html>
